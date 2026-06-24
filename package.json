@@ -173,7 +173,7 @@
     "jest-worker": "^29.7.0",
     "joycon": "^3.1.1",
     "js-tokens": "^4.0.0",
-    "js-yaml": "^3.14.2",
+    "js-yaml": "^4.2.0",
     "jsesc": "^3.1.0",
     "json-parse-even-better-errors": "^2.3.1",
     "json5": "^2.2.3",
