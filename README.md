@@ -60,7 +60,7 @@ count(p, n)                // exactly n repetitions → T[]
 lookahead(p)               // succeeds without consuming input
 not(p)                     // succeeds when p fails, consumes nothing
 skip(p1, p2)               // run both, return p1's value
-then(p1, p2)               // run both, return p2's value
+andThen(p1, p2)            // run both, return p2's value (discard left)
 ```
 
 ### Transformers
@@ -134,7 +134,7 @@ run(nested, "(())"); // { ok: true, value: null }
 ### Key–value pairs
 
 ```ts
-import { join, many1, letter, char, then, skip, sepBy, spaces, sequence, eof, run } from "parserkit";
+import { join, many1, letter, char, andThen, skip, sepBy, spaces, sequence, eof, run } from "parserkit";
 
 const key = join(many1(letter));
 const value = join(many1(letter));

@@ -2,7 +2,7 @@ import {
   str, regex, digit, letter, char, spaces, eof,
   sequence, choice, many, many1, optional, map, mapTo,
   between, sepBy, sepBy1, lookahead, not, label, chain,
-  lazy, skip, then, join, count, run, tryRun, ParseError
+  lazy, skip, andThen, join, count, run, tryRun, ParseError
 } from "../src/index.js";
 
 describe("sequence", () => {
@@ -170,14 +170,14 @@ describe("lazy", () => {
   });
 });
 
-describe("skip / then", () => {
+describe("skip / andThen", () => {
   it("skip discards right side", () => {
     const p = skip(many1(digit), char(";"));
     expect(run(p, "42;")).toMatchObject({ ok: true, value: ["4","2"] });
   });
 
-  it("then discards left side", () => {
-    const p = then(str("key="), many1(letter));
+  it("andThen discards left side", () => {
+    const p = andThen(str("key="), many1(letter));
     expect(run(p, "key=abc")).toMatchObject({ ok: true, value: ["a","b","c"] });
   });
 });

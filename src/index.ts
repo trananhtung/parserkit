@@ -6,6 +6,6 @@ export {
   sequence, choice, many, many1, optional,
   map, mapTo, between, sepBy, sepBy1,
   lookahead, not, label, chain, lazy,
-  skip, then, join, count
+  skip, andThen, join, count
 } from "./combinators.js";
 export { run, tryRun, type RunResult, type RunSuccess, type RunFailure } from "./run.js";

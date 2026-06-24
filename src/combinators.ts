@@ -217,7 +217,7 @@ export function skip<A>(left: Parser<A>, right: Parser<unknown>): Parser<A> {
 }
 
 /** Match left then right; return right's value (discard left). */
-export function then<B>(left: Parser<unknown>, right: Parser<B>): Parser<B> {
+export function andThen<B>(left: Parser<unknown>, right: Parser<B>): Parser<B> {
   return (state) => {
     const l = left(state);
     if (!l.ok) return l as unknown as Result<B>;
